@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import { Instagram, Linkedin } from "lucide-react";
 
 const industries = [
   "Limpieza de oficinas",
@@ -59,11 +60,17 @@ export default function Footer() {
               El motor de reservas con IA para servicios a domicilio y técnicos de campo.
             </p>
             <div style={{ display: "flex", gap: 12 }}>
-              <a href="#" aria-label="Instagram" style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", textDecoration: "none", fontSize: 16 }}>
-                IG
+              <a href="https://www.instagram.com/godolphy" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", textDecoration: "none", transition: "background 0.15s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+              >
+                <Instagram size={18} />
               </a>
-              <a href="#" aria-label="LinkedIn" style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", textDecoration: "none", fontSize: 12 }}>
-                LI
+              <a href="https://www.linkedin.com/company/godolphy" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style={{ width: 36, height: 36, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", color: "white", textDecoration: "none", transition: "background 0.15s" }}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.2)")}
+                onMouseLeave={(e) => (e.currentTarget.style.background = "rgba(255,255,255,0.1)")}
+              >
+                <Linkedin size={18} />
               </a>
             </div>
           </div>
@@ -76,7 +83,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {industries.map((item) => (
                 <li key={item}>
-                  <a href="#" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
+                  <a href="#sectores" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                   >
@@ -95,7 +102,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
               {features.map((item) => (
                 <li key={item}>
-                  <a href="#" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
+                  <a href="#funcionalidades" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                   >
@@ -114,7 +121,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 40px", display: "flex", flexDirection: "column", gap: 10 }}>
               {resources.map((item) => (
                 <li key={item}>
-                  <a href="#" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
+                  <a href="#recursos" style={{ fontFamily: "'Inter', sans-serif", fontSize: 14, color: "rgba(255,255,255,0.5)", textDecoration: "none", transition: "color 0.15s" }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "white")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(255,255,255,0.5)")}
                   >
