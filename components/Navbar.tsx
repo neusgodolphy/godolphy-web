@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const navLinks = [
   { label: "Sectores", href: "#sectores", hasDropdown: true },
@@ -10,8 +10,23 @@ const navLinks = [
   { label: "Precio", href: "#precio" },
 ];
 
+const sectores = [
+  "Limpieza de oficinas",
+  "Limpieza industrial",
+  "Limpieza de vehículos",
+  "Técnicos de campo",
+  "Manitas a domicilio",
+  "Jardineros",
+  "Lampistas",
+  "Fontaneros",
+  "Mantenimiento de piscinas",
+  "Niñeras",
+  "Tutores a domicilio",
+];
+
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   return (
     <header
@@ -68,32 +83,117 @@ export default function Navbar() {
           style={{ display: "flex", alignItems: "center", gap: 8 }}
           className="hidden-mobile"
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.label}
-              href={link.href}
-              style={{
-                color: "rgba(255,255,255,0.85)",
-                textDecoration: "none",
-                fontFamily: "'Inter', sans-serif",
-                fontWeight: 500,
-                fontSize: 15,
-                padding: "8px 14px",
-                borderRadius: 8,
-                transition: "color 0.15s, background 0.15s",
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "white";
-                (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)";
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)";
-                (e.currentTarget as HTMLElement).style.background = "transparent";
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.hasDropdown ? (
+              <div
+                key={link.label}
+                style={{ position: "relative" }}
+                onMouseEnter={() => setDropdownOpen(true)}
+                onMouseLeave={() => setDropdownOpen(false)}
+              >
+                <button
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 4,
+                    color: "rgba(255,255,255,0.85)",
+                    background: "none",
+                    border: "none",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 500,
+                    fontSize: 15,
+                    padding: "8px 14px",
+                    borderRadius: 8,
+                    cursor: "pointer",
+                    transition: "color 0.15s, background 0.15s",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "white";
+                    (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)";
+                    (e.currentTarget as HTMLElement).style.background = "transparent";
+                  }}
+                >
+                  {link.label}
+                  <ChevronDown
+                    size={14}
+                    style={{
+                      transition: "transform 0.2s",
+                      transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)",
+                    }}
+                  />
+                </button>
+                {dropdownOpen && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "calc(100% + 8px)",
+                      left: 0,
+                      background: "white",
+                      borderRadius: 12,
+                      boxShadow: "0 8px 32px rgba(0,0,0,0.16)",
+                      padding: "8px 0",
+                      minWidth: 220,
+                      zIndex: 100,
+                    }}
+                  >
+                    {sectores.map((sector) => (
+                      <Link
+                        key={sector}
+                        href="#sectores"
+                        style={{
+                          display: "block",
+                          padding: "10px 20px",
+                          fontFamily: "'Inter', sans-serif",
+                          fontSize: 14,
+                          color: "#333333",
+                          textDecoration: "none",
+                          transition: "background 0.1s, color 0.1s",
+                        }}
+                        onMouseEnter={(e) => {
+                          (e.currentTarget as HTMLElement).style.background = "#F0ECFF";
+                          (e.currentTarget as HTMLElement).style.color = "#631CFF";
+                        }}
+                        onMouseLeave={(e) => {
+                          (e.currentTarget as HTMLElement).style.background = "transparent";
+                          (e.currentTarget as HTMLElement).style.color = "#333333";
+                        }}
+                      >
+                        {sector}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ) : (
+              <Link
+                key={link.label}
+                href={link.href}
+                style={{
+                  color: "rgba(255,255,255,0.85)",
+                  textDecoration: "none",
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 500,
+                  fontSize: 15,
+                  padding: "8px 14px",
+                  borderRadius: 8,
+                  transition: "color 0.15s, background 0.15s",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "white";
+                  (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.1)";
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)";
+                  (e.currentTarget as HTMLElement).style.background = "transparent";
+                }}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
 
         {/* CTA buttons */}
