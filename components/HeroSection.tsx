@@ -93,9 +93,53 @@ export default function HeroSection() {
           </Link>
         </div>
 
-        {/* Trusted logos placeholder */}
-        <div style={{ marginTop: 64, opacity: 0.5, fontSize: 13, color: "white" }}>
-          {/* Space for trust logos / stats */}
+        {/* Trust stats */}
+        <div
+          style={{
+            marginTop: 64,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: 0,
+            flexWrap: "wrap",
+          }}
+        >
+          {[
+            { value: "+500", label: "negocios activos" },
+            { value: "+60%", label: "más fidelización" },
+            { value: "30 días", label: "gratis para probar" },
+          ].map((stat, i) => (
+            <div
+              key={stat.value}
+              style={{
+                padding: "0 40px",
+                borderRight: i < 2 ? "1px solid rgba(255,255,255,0.2)" : "none",
+                textAlign: "center",
+              }}
+            >
+              <div
+                style={{
+                  fontFamily: "'Gabarito', sans-serif",
+                  fontWeight: 700,
+                  fontSize: 32,
+                  color: "#EEFE3A",
+                  lineHeight: 1.1,
+                }}
+              >
+                {stat.value}
+              </div>
+              <div
+                style={{
+                  fontFamily: "'Inter', sans-serif",
+                  fontSize: 13,
+                  color: "rgba(255,255,255,0.65)",
+                  marginTop: 4,
+                }}
+              >
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
 
