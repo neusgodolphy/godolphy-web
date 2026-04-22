@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Gabarito:wght@400;600;700&family=Poppins:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-violet: #631CFF;
+  --color-violet-dark: #331378;
+  --color-violet-light: #E8E8FF;
+  --color-yellow: #EEFE3A;
+  --color-blue: #1A1AFF;
+  --color-rock: #02021E;
+  --color-body: #696871;
+  --color-heading: #333333;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: #333333; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Gabarito', sans-serif; }
+}
+
+@layer components {
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 32px; border-radius: 9999px; font-weight: 600; font-size: 18px;
+    color: #631CFF; background: #EEFE3A; border: 2px solid #EEFE3A;
+    transition: all 0.2s; cursor: pointer; text-decoration: none;
+  }
+  .btn-primary:hover { background: transparent; color: white; border-color: white; }
+  .btn-outline {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 14px 32px; border-radius: 9999px; font-weight: 600; font-size: 18px;
+    color: white; background: transparent; border: 2px solid white;
+    transition: all 0.2s; cursor: pointer; text-decoration: none;
+  }
+  .btn-outline:hover { background: white; color: #631CFF; }
+  .section-container { max-width: 1320px; margin: 0 auto; padding: 0 24px; }
+}
